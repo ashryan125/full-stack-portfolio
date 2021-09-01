@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "@material-ui/core/styles";
+import { styled, withStyles } from "@material-ui/core/styles";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
 import GroupIcon from "@material-ui/icons/Group";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
@@ -13,7 +13,8 @@ import {
   Paper,
   makeStyles,
 } from "@material-ui/core";
-import { Autorenew } from "@material-ui/icons";
+import ashleyRyan from "../../assets/ashleyRyan.jpeg";
+import SkillBar from "react-skillbars";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -26,6 +27,7 @@ const useStyles = makeStyles(() => ({
   cardStyle: {
     boxShadow: "none",
     elevation: 0,
+    textAlign: "center",
   },
   iconStyle: {
     fontSize: 60,
@@ -41,12 +43,40 @@ const useStyles = makeStyles(() => ({
   borderStyles: {
     borderBottom: "6px solid #15d803",
     width: "8%",
-    margin:'0 auto 50px auto'
+    margin: "0 auto 50px auto",
+  },
+  headshot: {
+    width: "80%",
+    borderRadius: "50%",
+    margin: "0 auto",
+    display: "block",
+  },
+  whoAmi: {
+    fontFamily: "Noto Sans JP, sans-serif",
+    fontWeight: 700,
+    textAlign: "center",
+    marginBottom: "15px",
+  },
+  skillBar: {
+    borderRadius: "0px",
+    WebkitBorderRadius: "0px",
+  },
+  skillStyle: {
+    margin: "auto auto",
   },
 }));
 
 export default function About() {
-  const { cardStyle, iconStyle, aboutStyle, borderStyles } = useStyles();
+  const {
+    cardStyle,
+    iconStyle,
+    aboutStyle,
+    borderStyles,
+    headshot,
+    whoAmi,
+    skillBar,
+    skillStyle,
+  } = useStyles();
 
   const responsiveCard = () => {
     return (
@@ -123,6 +153,82 @@ export default function About() {
     );
   };
 
+  const aboutCard = () => {
+    return (
+      <Card className={cardStyle}>
+        <CardMedia>
+          <img
+            src={ashleyRyan}
+            className={headshot}
+            alt="ashley ryan headshot"
+          />
+        </CardMedia>
+        <CardContent>
+          <Typography variant="h4" className={whoAmi}>
+            Who am I?
+          </Typography>
+          <Typography variant="body2">
+            I'm a Full Stack Developer located in Southern New Jersey. <br></br>{" "}
+            I am seriously dedicated to perfecting my craft, learning new tools,
+            and creating compelling, dynamic applications.
+          </Typography>
+        </CardContent>
+      </Card>
+    );
+  };
+
+  const skills = [
+    {
+      type: "HTML",
+      level: 90,
+    },
+    {
+      type: "CSS",
+      level: 85,
+    },
+    {
+      type: "Javascript",
+      level: 70,
+    },
+    {
+      type: "Bootstrap",
+      level: 85,
+    },
+    {
+      type: "MySQL",
+      level: 75,
+    },
+    {
+      type: "MongoDB",
+      level: 75,
+    },
+    {
+      type: "Express",
+      level: 75,
+    },
+    {
+      type: "React",
+      level: 60,
+    },
+    {
+      type: "NodeJS",
+      level: 75,
+    },
+
+    {
+      type: "Photoshop",
+      level: 95,
+    },
+  ];
+
+  const colors = {
+    bar: "#15d803",
+    title: {
+      text: "#fff",
+      background: "#0ea800",
+    },
+  };
+
   return (
     <div className="aboutContainer" id="about">
       <Typography variant="h3" className={aboutStyle}>
@@ -148,10 +254,15 @@ export default function About() {
         </Grid>
       </Grid>
 
-      <div className="flex">
-        <div>{/* photo and blurb */}</div>
-        <div>{/* list of tech skills */}</div>
-      </div>
+      <Grid container>
+        <Grid item md={4}>
+          <Item>{aboutCard}</Item>
+        </Grid>
+
+        <Grid item md={6} className={skillStyle} style={{ width: "100%" }}>
+          <SkillBar skills={skills} colors={colors} className={skillBar} />
+        </Grid>
+      </Grid>
     </div>
   );
 }
