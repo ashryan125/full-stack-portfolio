@@ -25,7 +25,7 @@ function Landing() {
   const classes = useStyles();
 
   return (
-    <header className="height-fix">
+    <header className="height-fix" id='home'>
       <div className="canvas flex">
         <div className="flex height">
         <p className="text">

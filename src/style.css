@@ -9,6 +9,10 @@ a:hover {
     color: #14a185;
 }
 
+.aboutContainer {
+  width: 80%;
+  margin: 0 auto;
+}
 .canvas {
   background: url("./assets/background.png");
   background-size: cover;
@@ -26,7 +30,7 @@ a:hover {
 
 .height {
     height: 100vh;
-    /* margin-top: -35%;  mobile only */
+    width: 90%;
 }
 
 .height-fix {

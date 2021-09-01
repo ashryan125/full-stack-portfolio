@@ -10,8 +10,8 @@ import {
   List,
   ListItem,
 } from "@material-ui/core";
-import { auto } from "async";
 import MenuIcon from "@material-ui/icons/Menu";
+
 
 const useStyles = makeStyles(() => ({
   nav: {
@@ -169,7 +169,7 @@ export default function Nav() {
           {...{
             key: label,
             color: "inherit",
-            to: href,
+            href: href,
             className: menuButton,
           }}
         >
@@ -187,23 +187,3 @@ export default function Nav() {
     </nav>
   );
 }
-
-//   return (
-//     <nav className="flex nav">
-//       <ul className="mainNav">
-//         <li className="links">
-//           <a href="#home">Home</a>
-//         </li>
-//         <li className="links">
-//           <a href="#about">About</a>
-//         </li>
-//         <li className="links">
-//           <a href="#portfolio">Portfolio</a>
-//         </li>
-//         <li className="links">
-//           <a href="#contact">Contact</a>
-//         </li>
-//       </ul>
-//     </nav>
-//   );
-// }
