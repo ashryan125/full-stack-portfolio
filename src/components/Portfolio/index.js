@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Typography, Grid, makeStyles } from "@material-ui/core";
-import photo from "../../assets/portfolio/small/commercial/0.jpg";
+import ProjectList from '../ProjectList';
+import { Typography, Grid, makeStyles, Button } from "@material-ui/core";
+
 
 const useStyles = makeStyles(() => ({
   titleStyle: {
@@ -15,22 +16,67 @@ const useStyles = makeStyles(() => ({
     width: "8%",
     margin: "0 auto 50px auto",
   },
+  btn: {
+      fontSize: '1.25em',
+      marginBottom: '15px',
+    "&:hover": {
+        color: "#fff",
+        backgroundColor: '#15d803'
+      },
+  },
+ 
 }));
 
-export default function Portfolio(props) {
-  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
+
+export default function Portfolio() {
+
   const [categories] = useState([
+    {
+      name: "All",
+      description: "all projects",
+    },
     {
       name: "Front-End",
       description:
         "Projects that feature front-end code: HTML, CSS, JavaScript",
     },
-    { name: "Back-End", description: "Projects that feature front-end code: MySQL, Sequelize, MongoDB, NodeJS, Express" },
+    {
+      name: "Back-End",
+      description:
+        "Projects that feature front-end code: MySQL, Sequelize, MongoDB, NodeJS, Express",
+    },
     { name: "React", description: "Projects using React" },
- 
   ]);
 
-  const { titleStyle, borderStyles } = useStyles();
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
+  const { titleStyle, borderStyles, btn } = useStyles();
+
+  const projectNav = () => {
+    return (
+        
+      <Grid container spacing={3} justifyContent="center">
+        {categories.map((category) => (
+          <Grid item
+            className={` ${
+              currentCategory.name === category.name
+            }`}
+            key={category.name}
+          >
+            <span
+              onClick={() => {
+                setCurrentCategory(category);
+              }}
+            >
+             <Button className={btn}>{category.name}</Button> 
+            </span>
+          </Grid>
+        ))}
+      </Grid>
+  
+    );
+  };
 
   return (
     <div className="portfolioContainer" id="portfolio">
@@ -39,20 +85,14 @@ export default function Portfolio(props) {
       </Typography>
       <div className={borderStyles}></div>
 
+        {projectNav()}
+
       <Grid container>
+    
         <Grid item md={4}>
-          <h5>{currentCategory.name}</h5>
-          <p>{currentCategory.name}</p>
-          <div className="flex-row">
-            <img
-              src={photo}
-              alt="Commercial Example"
-              className="img-thumbnail mx-1"
-            />
-          </div>
+          <ProjectList category={currentCategory.name} />
         </Grid>
 
-        <Grid item md={6} style={{ width: "100%" }}></Grid>
       </Grid>
     </div>
   );

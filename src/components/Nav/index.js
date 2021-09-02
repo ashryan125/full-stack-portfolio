@@ -142,7 +142,7 @@ export default function Nav() {
         <ListItem className={drawerItem}>
           <Button
             {...{
-              to: href,
+              href: href,
               color: "inherit",
               style: { textDecoration: "none" },
               key: label,
