@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProjectList from "../ProjectList";
-import { Typography, Grid, makeStyles, Button, useMediaQuery } from "@material-ui/core";
+import { Typography, Grid, makeStyles, Button } from "@material-ui/core";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
 const useStyles = makeStyles(() => ({

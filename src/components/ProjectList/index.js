@@ -45,7 +45,7 @@ export default function ProjectList({ category }) {
     <Grid
       container
       style={{
-        margin: "0 auto",
+        margin: "0 auto 5% auto",
         width: "85%",
       }}
     direction="row"
