@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import ProjectList from '../ProjectList';
-import { Typography, Grid, makeStyles, Button } from "@material-ui/core";
-
+import ProjectList from "../ProjectList";
+import { Typography, Grid, makeStyles, Button, useMediaQuery } from "@material-ui/core";
+import { capitalizeFirstLetter } from "../../utils/helpers";
 
 const useStyles = makeStyles(() => ({
+  backgroundStyle: {
+    backgroundColor: "#f5f5f5",
+  },
   titleStyle: {
     fontFamily: "Noto Sans JP, sans-serif",
     fontWeight: 900,
@@ -14,54 +17,56 @@ const useStyles = makeStyles(() => ({
   borderStyles: {
     borderBottom: "6px solid #15d803",
     width: "8%",
-    margin: "0 auto 50px auto",
+    margin: "0 auto 4% auto",
   },
   btn: {
-      fontSize: '1.25em',
-      marginBottom: '15px',
+    fontSize: "1.45em",
+    marginBottom: "15px",
     "&:hover": {
-        color: "#fff",
-        backgroundColor: '#15d803'
-      },
+      color: "#fff",
+      backgroundColor: "#15d803",
+    },
   },
- 
+  mobileBtn: {
+    width: '100%',
+    textAlign: 'center'
+  }
 }));
 
-
-
 export default function Portfolio() {
-
   const [categories] = useState([
+    // {
+    //   name: "all",
+    //   description: "all projects",
+    // },
     {
-      name: "All",
-      description: "all projects",
-    },
-    {
-      name: "Front-End",
+      name: "front-end",
       description:
         "Projects that feature front-end code: HTML, CSS, JavaScript",
     },
     {
-      name: "Back-End",
+      name: "back-end",
       description:
         "Projects that feature front-end code: MySQL, Sequelize, MongoDB, NodeJS, Express",
     },
-    { name: "React", description: "Projects using React" },
+    { name: "react", description: "Projects using React" },
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
-  const { titleStyle, borderStyles, btn } = useStyles();
+  const { titleStyle, borderStyles, btn, backgroundStyle } = useStyles();
 
   const projectNav = () => {
     return (
-        
-      <Grid container spacing={3} justifyContent="center">
+      <Grid
+        container
+        justifyContent="center"
+        spacing={2}
+      >
         {categories.map((category) => (
-          <Grid item
-            className={` ${
-              currentCategory.name === category.name
-            }`}
+          <Grid
+            item
+            className={` ${currentCategory.name === category.name}`}
             key={category.name}
           >
             <span
@@ -69,31 +74,31 @@ export default function Portfolio() {
                 setCurrentCategory(category);
               }}
             >
-             <Button className={btn}>{category.name}</Button> 
+              <Button className={btn}>
+                {capitalizeFirstLetter(category.name)}
+              </Button>
             </span>
           </Grid>
         ))}
       </Grid>
-  
     );
   };
 
   return (
-    <div className="portfolioContainer" id="portfolio">
+    <div
+      className={backgroundStyle}
+      id="portfolio"
+      style={{ "overflow-x": "hidden" }}
+    >
       <Typography variant="h3" className={titleStyle}>
         PROJECTS
       </Typography>
       <div className={borderStyles}></div>
 
-        {projectNav()}
+      {projectNav()}
 
-      <Grid container>
+      <ProjectList category={currentCategory.name} />
     
-        <Grid item md={4}>
-          <ProjectList category={currentCategory.name} />
-        </Grid>
-
-      </Grid>
     </div>
   );
 }

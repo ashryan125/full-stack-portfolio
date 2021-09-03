@@ -16,6 +16,7 @@ import {
 import ashleyRyan from "../../assets/ashleyRyan.jpeg";
 import SkillBar from "react-skillbars";
 
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -43,7 +44,7 @@ const useStyles = makeStyles(() => ({
   borderStyles: {
     borderBottom: "6px solid #15d803",
     width: "8%",
-    margin: "0 auto 50px auto",
+    margin: "0 auto 4% auto",
   },
   headshot: {
     width: "80%",
@@ -67,6 +68,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function About() {
+
+
   const {
     cardStyle,
     iconStyle,
@@ -230,13 +233,13 @@ export default function About() {
   };
 
   return (
-    <div className="aboutContainer" id="about">
+    <div className="aboutContainer" id="about" style={{ 'overflow-x': 'hidden' }}>
       <Typography variant="h3" className={aboutStyle}>
         ABOUT
       </Typography>
       <div className={borderStyles}></div>
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} style={{ marginBottom: "5%" }}>
         <Grid item md={3}>
           <Item>{responsiveCard()}</Item>
         </Grid>

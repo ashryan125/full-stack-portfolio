@@ -17,11 +17,6 @@ const useStyles = makeStyles(() => ({
   nav: {
     backgroundColor: "#0e0e12",
   },
-  // logo: {
-  //     fontFamily: "Noto Sans JP, sans-serif",
-  //     fontWeight: 700,
-  //     color: "#FFFEFE",
-  //   },
   menuButton: {
     fontFamily: "Noto Sans JP, sans-serif",
     fontWeight: 700,
@@ -75,11 +70,13 @@ export default function Nav() {
   const { mobileView, drawerOpen } = state;
 
   useEffect(() => {
+
     const setResponsiveness = () => {
       return window.innerWidth < 600
         ? setState((prevState) => ({ ...prevState, mobileView: true }))
         : setState((prevState) => ({ ...prevState, mobileView: false }));
     };
+
 
     setResponsiveness();
     window.addEventListener("resize", () => setResponsiveness());
@@ -94,7 +91,6 @@ export default function Nav() {
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        {/* {ashleyLogo} */}
         <div>{getMenuButtons()}</div>
       </Toolbar>
     );
@@ -156,11 +152,6 @@ export default function Nav() {
     });
   };
 
-  // const ashleyLogo = (
-  //     <Typography variant='h6' component='h1' className={logo}>
-  //         <BlurOn fontSize='large' style={{ color: '#15d803' }}/> Ashley Ryan
-  //     </Typography>
-  // );
 
   const getMenuButtons = () => {
     return navData.map(({ label, href }) => {
