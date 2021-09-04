@@ -88,7 +88,7 @@ export default function Portfolio() {
     <div
       className={backgroundStyle}
       id="portfolio"
-      style={{ "overflow-x": "hidden" }}
+      style={{ "overflowX": "hidden" }}
     >
       <Typography variant="h3" className={titleStyle}>
         PROJECTS

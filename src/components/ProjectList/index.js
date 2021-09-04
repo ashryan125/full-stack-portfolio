@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
-    root: {
-        flexGrow: 1,
-      },
-    imgThumbnail: {
-        width: 'auto',
-        height: '300px',
-    }
+  root: {
+    flexGrow: 1,
+  },
+  imgThumbnail: {
+    width: "auto",
+    height: "300px",
+  },
 }));
 
 export default function ProjectList({ category }) {
@@ -37,9 +37,9 @@ export default function ProjectList({ category }) {
 
   const { imgThumbnail } = useStyles();
 
-  const currentProjects = projects.filter(
-    (project) => project.category === category
-  );
+  // const currentProjects = projects.filter(
+  //   (project) => project.category === category
+  // );
 
   return (
     <Grid
@@ -48,10 +48,10 @@ export default function ProjectList({ category }) {
         margin: "0 auto 5% auto",
         width: "85%",
       }}
-    direction="row"
-    justifyContent="center"
-    alignItems="center"
-    spacing={2}
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}
     >
       {projects.map((image, i) => (
         <Grid item>

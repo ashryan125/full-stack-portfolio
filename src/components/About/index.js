@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, withStyles } from "@material-ui/core/styles";
+import { styled } from "@material-ui/core/styles";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
 import GroupIcon from "@material-ui/icons/Group";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
@@ -233,7 +233,7 @@ export default function About() {
   };
 
   return (
-    <div className="aboutContainer" id="about" style={{ 'overflow-x': 'hidden' }}>
+    <div className="aboutContainer" id="about" style={{ 'overflowX': 'hidden' }}>
       <Typography variant="h3" className={aboutStyle}>
         ABOUT
       </Typography>
