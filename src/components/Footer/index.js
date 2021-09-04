@@ -29,7 +29,7 @@ export default function Contact() {
       } = useStyles();
 
     return (
-        <div className={backgroundStyle}>
+        <div className={backgroundStyle} id="resume">
             <h2 className={headingStyles}>Footer!</h2></div>
     );
 }
