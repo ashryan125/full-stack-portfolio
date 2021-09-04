@@ -12,7 +12,7 @@ import {
   const useStyles = makeStyles(() => ({
     backgroundStyle: {
       backgroundColor: "#1e242c",
-      padding: '1%'
+      padding: '1%',
     },
     headingStyles: {
         color: '#fff',

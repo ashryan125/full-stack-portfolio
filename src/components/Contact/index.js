@@ -192,14 +192,15 @@ export default function Contact() {
       </Typography>
       <div className={borderStyles}></div>
 
-      <Grid container spacing={6} justifyContent="center" alignContent="center" >
+      <Grid container
+      // spacing={6}
+      justifyContent="center" alignContent="center" >
         <Grid item md={5}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18058.437565264492!2d-75.33204303618422!3d39.64779682165853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1630709610999!5m2!1sen!2sus"
             width="100%"
             height="450px"
             style={{ '"border': "0" }}
-            // allowfullScreen=""
             loading="lazy"
             title="google-map"
           ></iframe>
