@@ -6,19 +6,21 @@ import Nav from "./components/Nav";
 import About from "./components/About";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
+import Footer from './components/Footer';
 
 function App() {
 
   
   return (
     <div>
-      <Landing></Landing>
-      <Nav></Nav>
+      <Landing/>
+      <Nav/>
       <main>
-        <About></About>
-        <Portfolio></Portfolio>
+        <About/>
+        <Portfolio/>
       </main>
-      <Contact></Contact>
+      <Contact/>
+      <Footer/>
     </div>
   );
 }

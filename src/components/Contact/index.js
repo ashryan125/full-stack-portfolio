@@ -13,6 +13,7 @@ import { validateEmail } from "../../utils/helpers";
 const useStyles = makeStyles(() => ({
   backgroundStyle: {
     backgroundColor: "#0e0e12",
+    paddingBottom: '5%'
   },
   titleStyle: {
     fontFamily: "Noto Sans JP, sans-serif",
@@ -55,7 +56,7 @@ const useStyles = makeStyles(() => ({
   errorText: {
       color: '#ff0000',
       fontSize: '1em'
-  }
+  },
 }));
 
 const CssTextField = withStyles({
@@ -84,7 +85,7 @@ export default function Contact() {
     contactStyle,
     btnStyle,
     formTitle,
-    errorText
+    errorText,
   } = useStyles();
 
   const [formState, setFormState] = useState({
@@ -124,7 +125,7 @@ export default function Contact() {
 
   const contactForm = () => {
     return (
-      <form id="contact-form" onSubmit={handleSubmit}>
+      <form id="contact-form" onSubmit={handleSubmit} style={{'width': '90%', 'margin': '0 auto'}}>
         <Typography variant="h6" className={formTitle}>
           Looking to work together or have a question?
         </Typography>
@@ -191,7 +192,7 @@ export default function Contact() {
       </Typography>
       <div className={borderStyles}></div>
 
-      <Grid container spacing={6} justifyContent="center" alignContent="center">
+      <Grid container spacing={6} justifyContent="center" alignContent="center" >
         <Grid item md={5}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18058.437565264492!2d-75.33204303618422!3d39.64779682165853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1630709610999!5m2!1sen!2sus"
@@ -204,7 +205,7 @@ export default function Contact() {
           ></iframe>
         </Grid>
 
-        <Grid item md={4}>
+        <Grid item md={5}>
           {contactForm()}
         </Grid>
       </Grid>
