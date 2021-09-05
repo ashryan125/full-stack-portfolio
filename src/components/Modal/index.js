@@ -1,7 +1,6 @@
 import React from "react";
-import { Typography, Grid, makeStyles, Button } from "@material-ui/core";
+import { Grid, makeStyles, Button } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import TwitterIcon from "@material-ui/icons/Twitter";
 import LanguageIcon from "@material-ui/icons/Language";
 import CancelIcon from "@material-ui/icons/Cancel";
 
@@ -52,8 +51,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   imgStyle: {
-    width: "auto",
-    height: '700px'
+    width: "100%",
   },
 }));
 
@@ -68,7 +66,7 @@ export default function Modal({ onClose, currentProject }) {
     imgStyle
   } = useStyles();
 
-  const { name, category, description, index } = currentProject;
+  const { name, category, description, github, deployed, index } = currentProject;
 
   return (
     <div className={modalBackdrop}>
@@ -77,19 +75,19 @@ export default function Modal({ onClose, currentProject }) {
           <h3 className={modalTitle}>{name}</h3>
         </Grid>
         <Grid item md={12} >
-          <img alt="current project" src={require(`../../assets/portfolio/large/${category}/${index}.jpg`).default}
+          <img alt="current project" src={require(`../../assets/portfolio/${category}/${index}.png`).default}
           className={imgStyle}/>
         </Grid>
         <Grid item md={12}>
           <p className={descriptionStyle}>{description}</p>
         </Grid>
         <Grid item style={{ marginRight: "8px" }}>
-          <Button className={btnStyle} type="button" href="{github}">
+          <Button className={btnStyle} type="button" href={github} target="_blank">
             <GitHubIcon style={{ marginRight: "8px" }} /> Github
           </Button>
         </Grid>
         <Grid item md={1}>
-          <Button className={btnStyle} type="button" href="{deployed}">
+          <Button className={btnStyle} type="button" href={deployed} target="_blank">
             <LanguageIcon style={{ marginRight: "8px" }} />
             Deployed
           </Button>

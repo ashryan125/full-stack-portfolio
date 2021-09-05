@@ -39,8 +39,6 @@ A tech news blog where you can post links, leave a review, add comments and down
 
 ```
 
-WHEN I am presented with the Portfolio section
-THEN I see titled images of six of the developer’s applications with links to both the deployed applications and the corresponding GitHub repository
 
 WHEN I am presented with the Resume section
 THEN I see a link to a downloadable resume 

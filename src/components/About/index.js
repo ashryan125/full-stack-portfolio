@@ -263,7 +263,7 @@ export default function About() {
         </Grid>
 
         <Grid item md={6} className={skillStyle} style={{ width: "100%" }}>
-          <SkillBar skills={skills} colors={colors} className={skillBar} />
+          <SkillBar skills={skills} colors={colors} className={skillBar} animationDelay={500}/>
         </Grid>
       </Grid>
     </div>

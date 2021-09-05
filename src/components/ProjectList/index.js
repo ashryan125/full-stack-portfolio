@@ -15,24 +15,88 @@ const useStyles = makeStyles(() => ({
 export default function ProjectList({ category }) {
   const [projects] = useState([
     {
-      name: "project-1",
-      category: "front-end",
-      description: "",
+      name: "Beat-IT Music App",
+      category: "back-end",
+      description: "This webpage, BEAT IT is based on songs. The website provides a user to post music by searching their favorite song which is connected through Spotify API, write a review about the song, as well as give the song a rating of their choice from 1-5. The user can go to other user's posts and add their comment on the post and also vote thier input of like or dislike.",
+      github: 'https://github.com/ashryan125/musicesq',
+      deployed: 'https://beatit-music-app.herokuapp.com/'
     },
     {
-      name: "project-2",
-      category: "front-end",
-      description: "",
+      name: "Offbeat News - Tech News App",
+      category: "back-end",
+      description: "A tech news blog where you can post links, leave a review, add comments and downvote/upvote other's posts!",
+      github: 'https://github.com/ashryan125/offbeat-news',
+      deployed: 'https://offbeat-news.herokuapp.com/'
     },
     {
-      name: "project-3",
+      name: "Date Night Done Right",
       category: "front-end",
-      description: "",
+      description: "Date Night Done Right is an app we created that answers the age old question of 'what do we eat tonight' ",
+      github: 'https://github.com/ashryan125/DateNightDoneRight',
+      deployed: 'https://reubengenkin.github.io/Enterthevoid/'
     },
     {
-      name: "project-4",
+      name: 'Spacebook',
+      category: "back-end",
+      description: "A social media startup where users can share their thoughts, react to friends' thoughts, and create a friend list. Back-end is complete and ready for a front-end application to be built",
+      github: 'https://github.com/ashryan125/spacebook',
+      deployed: 'https://drive.google.com/file/d/163hjHpMLv2AbtO6SV7zNVcFHvLphM--A/view'
+    },
+    {
+      name: "Just Tech News",
+      category: "back-end",
+      description: "A demo news site (like Reddit) where users can post links to articles and other users can then vote (up or down) and make comments",
+      github: 'https://github.com/ashryan125/ecommerce-backend',
+      deployed: 'https://powerful-beach-05665.herokuapp.com/'
+    },
+    {
+      name: "Code Quiz",
       category: "front-end",
-      description: "",
+      description: "An online quiz that generates content dynamically and stores scores in localStorage",
+      github: 'https://github.com/ashryan125/code-quiz',
+      deployed: 'https://ashryan125.github.io/code-quiz/'
+    },
+    {
+      name: "Beat-IT Music App",
+      category: "all",
+      description: "This webpage, BEAT IT is based on songs. The website provides a user to post music by searching their favorite song which is connected through Spotify API, write a review about the song, as well as give the song a rating of their choice from 1-5. The user can go to other user's posts and add their comment on the post and also vote thier input of like or dislike.",
+      github: 'https://github.com/ashryan125/musicesq',
+      deployed: 'https://beatit-music-app.herokuapp.com/'
+    },
+    {
+      name: "Offbeat News - Tech News App",
+      category: "all",
+      description: "A tech news blog where you can post links, leave a review, add comments and downvote/upvote other's posts!",
+      github: 'https://github.com/ashryan125/offbeat-news',
+      deployed: 'https://offbeat-news.herokuapp.com/'
+    },
+    {
+      name: "Date Night Done Right",
+      category: "all",
+      description: "Date Night Done Right is an app we created that answers the age old question of 'what do we eat tonight' ",
+      github: 'https://github.com/ashryan125/DateNightDoneRight',
+      deployed: 'https://reubengenkin.github.io/Enterthevoid/'
+    },
+    {
+      name: 'Spacebook',
+      category: "all",
+      description: "A social media startup where users can share their thoughts, react to friends' thoughts, and create a friend list. Back-end is complete and ready for a front-end application to be built",
+      github: 'https://github.com/ashryan125/spacebook',
+      deployed: 'https://drive.google.com/file/d/163hjHpMLv2AbtO6SV7zNVcFHvLphM--A/view'
+    },
+    {
+      name: "Just Tech News",
+      category: "all",
+      description: "A demo news site (like Reddit) where users can post links to articles and other users can then vote (up or down) and make comments",
+      github: 'https://github.com/ashryan125/ecommerce-backend',
+      deployed: 'https://powerful-beach-05665.herokuapp.com/'
+    },
+    {
+      name: "Code Quiz",
+      category: "all",
+      description: "An online quiz that generates content dynamically and stores scores in localStorage",
+      github: 'https://github.com/ashryan125/code-quiz',
+      deployed: 'https://ashryan125.github.io/code-quiz/'
     },
   ]);
 
@@ -71,7 +135,7 @@ export default function ProjectList({ category }) {
           <Grid item>
             <img
               src={
-                require(`../../assets/portfolio/small/${category}/${i}.jpg`)
+                require(`../../assets/portfolio/${category}/${i}.png`)
                   .default
               }
               alt={image.name}

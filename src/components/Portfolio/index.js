@@ -30,15 +30,20 @@ const useStyles = makeStyles(() => ({
   mobileBtn: {
     width: '100%',
     textAlign: 'center'
+  },
+  descriptionStyle: {
+    fontFamily: "Noto Sans JP, sans-serif",
+    textAlign: 'center',
+    margin: '-20px 0 10px 0'
   }
 }));
 
 export default function Portfolio() {
   const [categories] = useState([
-    // {
-    //   name: "all",
-    //   description: "all projects",
-    // },
+    {
+      name: "all",
+      description: "Project below feature: HTML, CSS, JavaScript, MongoDB, Sequelize, Express, NodeJS, React",
+    },
     {
       name: "front-end",
       description:
@@ -49,12 +54,12 @@ export default function Portfolio() {
       description:
         "Projects that feature front-end code: MySQL, Sequelize, MongoDB, NodeJS, Express",
     },
-    { name: "react", description: "Projects using React" },
+    // { name: "react", description: "Projects using React" },
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
-  const { titleStyle, borderStyles, btn, backgroundStyle } = useStyles();
+  const { titleStyle, borderStyles, btn, backgroundStyle, descriptionStyle } = useStyles();
 
   const projectNav = () => {
     return (
@@ -80,6 +85,7 @@ export default function Portfolio() {
             </span>
           </Grid>
         ))}
+            <Grid item md={12} className={descriptionStyle}>{currentCategory.description} </Grid>
       </Grid>
     );
   };
