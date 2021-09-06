@@ -1,61 +1,39 @@
 import React from "react";
-import {
-    Typography,
-    Grid,
-    makeStyles,
-    Button,
-    FormControl,
-    TextField,
-    withStyles,
-  } from "@material-ui/core";
-  import TwitterIcon from "@material-ui/icons/Twitter";
-  import GetAppIcon from '@material-ui/icons/GetApp';
-  import GitHubIcon from "@material-ui/icons/GitHub";
+import { Grid, makeStyles, IconButton } from "@material-ui/core";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import linkedin from "../../assets/linkedin.png";
 
-  const useStyles = makeStyles(() => ({
-    backgroundStyle: {
-      backgroundColor: "#1e242c",
-      padding: '1%',
-    },
-    headingStyles: {
-        color: '#fff',
-        margin: '2% auto'
-    },
-    btnStyle: {
-        backgroundColor: "#0ea600",
-        color: "#fff",
-        "&:hover": {
-          backgroundColor: "#15d803",
-          color: "#fff",
-        },
-      },
-  }));
-
+const useStyles = makeStyles(() => ({
+  backgroundStyle: {
+    backgroundColor: "#1e242c",
+    padding: "1%",
+  },
+  iconStyle: {
+    color: "#575757",
+    fontSize: "50px",
+    height: "60px",
+    margin: '0 5px 0 5px'
+  },
+}));
 
 export default function Contact() {
+  const { backgroundStyle, iconStyle } = useStyles();
 
-    const {
-        backgroundStyle,
-        headingStyles,
-        btnStyle
-      } = useStyles();
-
-    return (
-        <div className={backgroundStyle} id="resume">
-            <Grid container>
-                <Grid item>
-                    <Button className={btnStyle}><GetAppIcon/>Resume</Button>
-                </Grid>
-                <Grid item>
-                <GitHubIcon/>
-                </Grid>
-                <Grid item>
-                    LinkedIn
-                </Grid>
-                <Grid item>
-                    <TwitterIcon/>
-                </Grid>
-            </Grid>
-            <h2 className={headingStyles}>Footer!</h2></div>
-    );
+  return (
+    <div className={backgroundStyle} id="resume">
+      <Grid container justifyContent="center">
+        <Grid item>
+          <IconButton href='https://github.com/ashryan125' target='blank'><GitHubIcon className={iconStyle}/></IconButton>
+        </Grid>
+        <Grid item>
+          <IconButton href='https://www.linkedin.com/in/ashleyryan125/' target='blank'><img src={linkedin} className={iconStyle}/></IconButton>
+        </Grid>
+        <Grid item>
+          <IconButton href='https://twitter.com/ashryan125' target='blank'><TwitterIcon className={iconStyle}/></IconButton>
+        </Grid>
+      </Grid>
+    </div>
+  );
 }

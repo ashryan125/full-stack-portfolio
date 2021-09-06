@@ -239,7 +239,7 @@ export default function About() {
       </Typography>
       <div className={borderStyles}></div>
 
-      <Grid container spacing={2} style={{ marginBottom: "5%" }}>
+      <Grid container spacing={2} style={{ marginBottom: "5%" }} justifyContent='center'>
         <Grid item md={3}>
           <Item>{responsiveCard()}</Item>
         </Grid>

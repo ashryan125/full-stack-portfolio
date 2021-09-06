@@ -10,11 +10,23 @@ import {
   ListItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import resume from '../../assets/AshleyRyan-Resume.pdf';
 
-
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
   nav: {
     backgroundColor: "#0e0e12",
+  },
+  btnStyle: {
+    backgroundColor: "#0ea600",
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: "#15d803",
+      color: "#fff",
+    },
   },
   menuButton: {
     fontFamily: "Noto Sans JP, sans-serif",
@@ -30,15 +42,26 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
   },
   drawer: {
-      backgroundColor: '#0e0e12',
-      color: '#fff',
+    backgroundColor: "#0e0e12",
+    color: "#fff",
   },
   drawerItem: {
     "&:hover": {
-        color: "#15d803",
-      },
-  }
-  
+      color: "#15d803",
+    },
+  },
+  drawerBtn: {
+    margin: "10px 0 10px 18px",
+  },
+  spacing: {
+    marginLeft: "auto",
+  },
+  center: {
+    marginLeft: "35%",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "14%",
+    },
+  },
 }));
 
 const navData = [
@@ -58,10 +81,6 @@ const navData = [
     label: "Contact",
     href: "#contact",
   },
-  {
-    label: 'Resume',
-    href: '#resume'
-  }
 ];
 
 export default function Nav() {
@@ -73,13 +92,11 @@ export default function Nav() {
   const { mobileView, drawerOpen } = state;
 
   useEffect(() => {
-
     const setResponsiveness = () => {
       return window.innerWidth < 600
         ? setState((prevState) => ({ ...prevState, mobileView: true }))
         : setState((prevState) => ({ ...prevState, mobileView: false }));
     };
-
 
     setResponsiveness();
     window.addEventListener("resize", () => setResponsiveness());
@@ -89,12 +106,33 @@ export default function Nav() {
     };
   }, []);
 
-  const { nav, menuButton, toolbar, drawer, drawerItem } = useStyles();
+  const {
+    nav,
+    menuButton,
+    toolbar,
+    drawer,
+    drawerItem,
+    btnStyle,
+    spacing,
+    center,
+    drawerBtn,
+  } = useStyles();
 
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        <div>{getMenuButtons()}</div>
+        <div className={center}>{getMenuButtons()}</div>
+        <div className={spacing}>
+          <Button
+            alignSelf="flex-end"
+            className={btnStyle}
+            href={resume}
+            download
+          >
+            <GetAppIcon />
+            Resume
+          </Button>
+        </div>
       </Toolbar>
     );
   };
@@ -126,10 +164,16 @@ export default function Nav() {
             anchor: "top",
             open: drawerOpen,
             onClose: handleDrawerClose,
-            
           }}
         >
-          <List className={drawer}>{getDrawerChoices()}</List>
+          <List className={drawer}>
+            {getDrawerChoices()}
+            <Button className={`${btnStyle} ${drawerBtn}`} href={resume}
+            download>
+              <GetAppIcon />
+              Resume
+            </Button>
+          </List>
         </Drawer>
       </Toolbar>
     );
@@ -147,14 +191,12 @@ export default function Nav() {
               key: label,
             }}
           >
-                {label}
+            {label}
           </Button>
-          </ListItem>
-    
+        </ListItem>
       );
     });
   };
-
 
   const getMenuButtons = () => {
     return navData.map(({ label, href }) => {
