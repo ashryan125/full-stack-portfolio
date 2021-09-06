@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, makeStyles, IconButton } from "@material-ui/core";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import GetAppIcon from "@material-ui/icons/GetApp";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import linkedin from "../../assets/linkedin.png";
 
@@ -28,7 +27,7 @@ export default function Contact() {
           <IconButton href='https://github.com/ashryan125' target='blank'><GitHubIcon className={iconStyle}/></IconButton>
         </Grid>
         <Grid item>
-          <IconButton href='https://www.linkedin.com/in/ashleyryan125/' target='blank'><img src={linkedin} className={iconStyle}/></IconButton>
+          <IconButton href='https://www.linkedin.com/in/ashleyryan125/' target='blank'><img src={linkedin} className={iconStyle} alt=''/></IconButton>
         </Grid>
         <Grid item>
           <IconButton href='https://twitter.com/ashryan125' target='blank'><TwitterIcon className={iconStyle}/></IconButton>

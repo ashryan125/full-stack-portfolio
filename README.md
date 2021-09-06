@@ -2,10 +2,10 @@
 # {Full Stack Portfolio}
 
 ## Description
-A tech news blog where you can post links, leave a review, add comments and downvote/upvote other's posts!
+A showcase website built with React and Material UI of my full-stack capabilities to be used for future employment opportunities
 
 ### Deployed Site
-> [Ashley Ryan ~ Full Stack](#)
+> [Ashley Ryan ~ Full Stack](https://ashryan125.github.io/full-stack-portfolio/)
 
 ---
 
@@ -25,26 +25,17 @@ A tech news blog where you can post links, leave a review, add comments and down
 ---
 
 ## Screenshots
+[Portfolio Link](https://ashryan125.github.io/full-stack-portfolio/)
+
 ### Home Page View
-![Homepage](#)
-### Login Page
-![Page](#)
+![Homepage](./src/assets/homePage.png)
+### Mobile View
+![Mobile Homepage](./src/assets/mobileScreen.png)
 
 ---
 ## Contact
 * [GitHub](https://github.com/ashryan125)
 * [LinkedIn](https://www.linkedin.com/in/ashleyryan125)
 
-## User Acceptance - TO BE DELETED
 
-```
-
-
-WHEN I am presented with the Resume section
-THEN I see a link to a downloadable resume 
-and a list of the developer’s proficiencies
-
-WHEN I view the footer
-THEN I am presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter) 
-```
 

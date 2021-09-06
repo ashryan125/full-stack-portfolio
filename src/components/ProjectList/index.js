@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import Modal from "../Modal";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   imgThumbnail: {
     width: "auto",
     height: "300px",
+    [theme.breakpoints.down("sm")]: {
+      height: '175px'
+    },
   },
 }));
 

@@ -3,7 +3,7 @@ import ProjectList from "../ProjectList";
 import { Typography, Grid, makeStyles, Button } from "@material-ui/core";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   backgroundStyle: {
     backgroundColor: "#f5f5f5",
   },
@@ -26,6 +26,9 @@ const useStyles = makeStyles(() => ({
       color: "#fff",
       backgroundColor: "#15d803",
     },
+    [theme.breakpoints.down("sm")]: {
+      width: '200px',
+    },
   },
   mobileBtn: {
     width: '100%',
@@ -34,7 +37,8 @@ const useStyles = makeStyles(() => ({
   descriptionStyle: {
     fontFamily: "Noto Sans JP, sans-serif",
     textAlign: 'center',
-    margin: '-20px 0 10px 0'
+    margin: '-20px 0 10px 0',
+    fontSize: '1.25em'
   }
 }));
 
